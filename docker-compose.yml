@@ -1,0 +1,35 @@
+version: '3'
+services:
+  homearena:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      database:
+        condition: service_healthy
+    network_mode: "host"
+
+  database:
+    image: mariadb:10.4.17
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sinqia
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 
+    volumes:
+      - ./db/:/var/lib/mysql
+    network_mode: "host"
+    healthcheck:
+      test: ["CMD", "mysqladmin",
+                    "-h",
+                    "localhost",
+                    "-uroot",
+                    "-proot",
+                    "processlist"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
