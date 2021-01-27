@@ -52,7 +52,7 @@
 
 * O Usuario do sistema(Admin ou Cliente), poderam acessar seus dados pela rota: `/self`
 * ou seja:  
-* É recomanedável utilizar e-mails válidos no cadastro de clientes, para o cliente receber um e-mail com a confirmação do seu cadastro junto de sua senha de acesso;		
+* É recomanedável utilizar e-mails válidos no cadastro de clientes, para o cliente receber um e-mail com a confirmação do seu cadastro.		
 
 			/{tipo de usuario}/self
 
