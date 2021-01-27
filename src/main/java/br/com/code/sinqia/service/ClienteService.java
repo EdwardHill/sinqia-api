@@ -50,9 +50,8 @@ public class ClienteService {
 	private BCryptPasswordEncoder encoder;
 	@Value("${img.user.profile}")
 	private String picture;
-	/*
-	 * @Autowired private EmailService emailService;
-	 */
+	@Autowired
+	private EmailService emailService;
 
 	public List<Cliente> findAll() {
 		return repo.findAll();
@@ -77,7 +76,7 @@ public class ClienteService {
 		newObj.setRoles(Arrays.asList(roleRepo.findBynomeRole(Perfil.CLIENTE.getDescricao())));
 		newObj.setId(null);
 		newObj.setProfile(picture);
-		//emailService.sendWelcomeEmail(newObj);
+		emailService.sendWelcomeEmail(newObj);
 		return repo.save(newObj);
 	}
 
@@ -123,7 +122,7 @@ public class ClienteService {
 
 	public void updateData(Cliente upObj, Cliente obj) {
 		Optional<Usuario> usuario = usuRepo.findById(jwtUtil.getIdDoUsuario(jwtUtil.getTokenFromRequest(request)));
-		
+
 		if (obj.getNome() != null) {
 			upObj.setNome(obj.getNome());
 		}
@@ -188,7 +187,6 @@ public class ClienteService {
 		}
 
 	}
-
 
 	public Cliente updatePassword(String password, String newPassword) {
 		Cliente userAuth = findByMySelf();
