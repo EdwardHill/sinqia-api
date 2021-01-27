@@ -123,7 +123,7 @@ public class ClienteService {
 
 	public void updateData(Cliente upObj, Cliente obj) {
 		Optional<Usuario> usuario = usuRepo.findById(jwtUtil.getIdDoUsuario(jwtUtil.getTokenFromRequest(request)));
-		System.out.println(usuario.get().getEmail() + " " + usuario.get().getAuthorities());
+		
 		if (obj.getNome() != null) {
 			upObj.setNome(obj.getNome());
 		}

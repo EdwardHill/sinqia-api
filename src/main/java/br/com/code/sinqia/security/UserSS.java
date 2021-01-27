@@ -35,11 +35,10 @@ public class UserSS implements UserDetails {
 	public String getPassword() {
 		return this.password;
 	}
-
+	
 	public String getUsername() {
-		return this.username;
+		return username;
 	}
-
 	public boolean isAccountNonExpired() {
 		return usuario.isAccountNonExpired();
 	}

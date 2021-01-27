@@ -31,7 +31,7 @@ import br.com.code.sinqia.service.ClienteService;
 
 
 @RestController
-@RequestMapping(value = "/clientes")
+@RequestMapping(value = "/cliente")
 public class ClienteResource {
 
 	@Autowired
@@ -53,7 +53,7 @@ public class ClienteResource {
 	}
 
 	@GetMapping(value = "/self")
-	@PreAuthorize("hasAnyRole('USER')")
+	@PreAuthorize("hasAnyRole('CLIENTE')")
 	public ResponseEntity<Cliente> findByMySelf() {
 		Cliente obj = service.findByMySelf();
 		return ResponseEntity.ok().body(obj);
@@ -69,7 +69,7 @@ public class ClienteResource {
 	}
 
 	@PutMapping(value = "/{id}")
-	@PreAuthorize("hasAnyRole('USER,ADMIN')")
+	@PreAuthorize("hasAnyRole('CLIENTE,ADMIN')")
 	public ResponseEntity<Void> update(@Valid @RequestBody ClienteUpdateDTO objDTO, @PathVariable Integer id) {
 		objDTO.setId(id);
 		Cliente obj = service.fromDto(objDTO);
@@ -97,7 +97,7 @@ public class ClienteResource {
 	
 	//Alterar Senha
 	@PutMapping(value="/changepassword")
-	@PreAuthorize("hasAnyRole('USER','ADMIN')")
+	@PreAuthorize("hasAnyRole('CLIENTE','ADMIN')")
 	public ResponseEntity<Void> changePassword(@RequestBody PasswordDTO objDTO){	
 		service.updatePassword(objDTO.getPassword(), objDTO.getNewPassword());
 		return ResponseEntity.noContent().build();	

@@ -14,14 +14,11 @@ import br.com.code.sinqia.domain.Telefone;
 public class ClienteUpdateDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer id;
-	@NotEmpty(message = "Informe o nome completo!")
 	private String nome;
 	private String cpf;
-	@NotEmpty(message = "Informe o e-mail!")
 	@Email
 	@Column(unique = true)
 	private String email;
-	@NotEmpty(message = "Insira uma senha!")
 	private String senha;
 	private Date nascimento;
 	private Telefone telefone;
