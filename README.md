@@ -12,8 +12,7 @@
 			 "username":sinqia@gmail.com
 			 "password" : 123456
 
-
-	O front-end encontrasse embutido no back, para facilitar o acesso as rotas:
+O front-end encontrasse embutido no back, para facilitar o acesso as rotas:
 para acessar pelo browser basta ir no endereço: `http://localhost:8080` e utilizar as crendêciais de acesso acima do admin padrão.
 - Para startar o projeto basta  importa-lo em alguma IDE com suporte ao java 8
  E tbm o MySQL instalado, com as seguintes crendenciais:
@@ -60,19 +59,12 @@ para acessar pelo browser basta ir no endereço: `http://localhost:8080` e utili
 
 * O Usuario do sistema(Admin ou Cliente), poderam acessar seus dados pela rota: `/self`
 * ou seja:  
+
+    `/{tipo de usuario}/self`
+
 * É recomanedável utilizar e-mails válidos no cadastro de clientes, para o cliente receber um e-mail com a confirmação do seu cadastro.
 
-##Observação:
-*Apenas duas coisas ficaram de fora do desafio que são:
- - a integração com a api do viaCEP   
- - a alteção dos dados pelo Cliente 
-utilizando  no seu perfil no front-end.
-por conta por fatores externos me faltou mais tempo para concluir o desaio  por completo.			
-
-
-	/{tipo de usuario}/self
-
-
+			
 **Rotas já funcionais:**
 
 `/admin`
@@ -82,8 +74,6 @@ por conta por fatores externos me faltou mais tempo para concluir o desaio  por 
 
 
 ### POST para entidade CLIENTE:
-
-
 
 - Endpoint:
 ` /cliente`
