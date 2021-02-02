@@ -144,48 +144,47 @@ public class ClienteService {
 						"Acesso Negado, somente o adiministador pode alterar o cpf, contate o Adiministrador!");
 			} else {
 				upObj.setCpf(obj.getCpf());
+			}	
+		}
+		if (obj.getTelefone() != null) {
+			upObj.setTelefone(obj.getTelefone());
+			if (obj.getTelefone().getDdd() != null) {
+				upObj.getTelefone().setDdd(obj.getTelefone().getDdd());
 			}
-			if (obj.getTelefone() != null) {
-				upObj.setTelefone(obj.getTelefone());
-				if (obj.getTelefone().getDdd() != null) {
-					upObj.getTelefone().setDdd(obj.getTelefone().getDdd());
-				}
-				if (obj.getTelefone().getNumero() != null) {
-					upObj.getTelefone().setNumero(obj.getTelefone().getNumero());
-				}
-				if (obj.getTelefone().getTipoTelefone() != null) {
-					upObj.getTelefone().setTipoTelefone(obj.getTelefone().getTipoTelefone());
-				}
+			if (obj.getTelefone().getNumero() != null) {
+				upObj.getTelefone().setNumero(obj.getTelefone().getNumero());
 			}
-
-			if (obj.getEndereco() != null) {
-				upObj.setEndereco(obj.getEndereco());
-
-				if (obj.getEndereco().getCep() != null) {
-					upObj.getEndereco().setCep(obj.getEndereco().getCep());
-				}
-				if (obj.getEndereco().getCidade() != null) {
-					upObj.getEndereco().setCidade(obj.getEndereco().getCidade());
-					;
-				}
-				if (obj.getEndereco().getUf() != null) {
-					upObj.getEndereco().setUf(obj.getEndereco().getUf());
-				}
-				if (obj.getEndereco().getBairro() != null) {
-					upObj.getEndereco().setBairro(obj.getEndereco().getBairro());
-				}
-				if (obj.getEndereco().getRua() != null) {
-					upObj.getEndereco().setRua(obj.getEndereco().getRua());
-				}
-				if (obj.getEndereco().getNumero() != null) {
-					upObj.getEndereco().setNumero(obj.getEndereco().getNumero());
-				}
-				if (obj.getEndereco().getComplemento() != null) {
-					upObj.getEndereco().setComplemento(obj.getEndereco().getComplemento());
-				}
+			if (obj.getTelefone().getTipoTelefone() != null) {
+				upObj.getTelefone().setTipoTelefone(obj.getTelefone().getTipoTelefone());
 			}
 		}
 
+		if (obj.getEndereco() != null) {
+			upObj.setEndereco(obj.getEndereco());
+
+			if (obj.getEndereco().getCep() != null) {
+				upObj.getEndereco().setCep(obj.getEndereco().getCep());
+			}
+			if (obj.getEndereco().getCidade() != null) {
+				upObj.getEndereco().setCidade(obj.getEndereco().getCidade());
+				;
+			}
+			if (obj.getEndereco().getUf() != null) {
+				upObj.getEndereco().setUf(obj.getEndereco().getUf());
+			}
+			if (obj.getEndereco().getBairro() != null) {
+				upObj.getEndereco().setBairro(obj.getEndereco().getBairro());
+			}
+			if (obj.getEndereco().getRua() != null) {
+				upObj.getEndereco().setRua(obj.getEndereco().getRua());
+			}
+			if (obj.getEndereco().getNumero() != null) {
+				upObj.getEndereco().setNumero(obj.getEndereco().getNumero());
+			}
+			if (obj.getEndereco().getComplemento() != null) {
+				upObj.getEndereco().setComplemento(obj.getEndereco().getComplemento());
+			}
+		}
 	}
 
 	public Cliente updatePassword(String password, String newPassword) {

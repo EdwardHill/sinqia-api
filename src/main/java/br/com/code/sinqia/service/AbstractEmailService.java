@@ -62,7 +62,7 @@ public abstract class AbstractEmailService implements EmailService {
 
 	/*---------------Início Forgot Password--------------------*/
 
-	protected String htmlFromTemplateForgotPassword(String newPass, Cliente obj) {
+	protected String htmlFromTemplateForgotPassword(String newPass, Usuario obj) {
 
 		Context context = new Context();
 		context.setVariable("pass", newPass);
@@ -70,7 +70,7 @@ public abstract class AbstractEmailService implements EmailService {
 		return templateEngine.process("email/forgot", context);
 	}
 
-	protected MimeMessage prepareNewPasswordEmail(Cliente obj, String newPass) throws MessagingException {
+	protected MimeMessage prepareNewPasswordEmail(Usuario obj, String newPass) throws MessagingException {
 		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
 		MimeMessageHelper mmh = new MimeMessageHelper(mimeMessage, true);
 		String subject = "Sua nova senha - Sinquia";
@@ -82,7 +82,7 @@ public abstract class AbstractEmailService implements EmailService {
 		return mimeMessage;
 	}
 
-	public void sendNewPasswordEmail( Cliente obj,String newPass) {
+	public void sendNewPasswordEmail( Usuario obj,String newPass) {
 
 		try {
 			MimeMessage mm = prepareNewPasswordEmail(obj,newPass);

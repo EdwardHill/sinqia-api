@@ -1,10 +1,10 @@
 package br.com.code.sinqia.dto;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 
 import br.com.code.sinqia.domain.Cliente;
+import br.com.code.sinqia.domain.Endereco;
 import br.com.code.sinqia.domain.Telefone;
 
 
@@ -16,6 +16,7 @@ public class ClienteDTO implements Serializable {
 	private String email;
 	private Date nascimento;
 	private Telefone telefone;
+	private Endereco endereco;
 	private String profile;
 	public  ClienteDTO() {
 		
@@ -29,6 +30,7 @@ public class ClienteDTO implements Serializable {
 		email = obj.getEmail();
 		nascimento = obj.getNascimento();
 		telefone = obj.getTelefone();
+		endereco = obj.getEndereco();
 		profile = obj.getProfile();
 		}
 
@@ -86,6 +88,14 @@ public class ClienteDTO implements Serializable {
 
 	public void setProfile(String profile) {
 		this.profile = profile;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
 	
 }

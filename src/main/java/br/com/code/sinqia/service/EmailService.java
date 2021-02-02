@@ -13,7 +13,7 @@ public interface EmailService {
 
 	void sendHtmlEmail(MimeMessage msg);
 
-	void sendNewPasswordEmail(Cliente user, String newPass);
+	void sendNewPasswordEmail(Usuario user, String newPass);
 
 	void sendWelcomeEmail(Cliente user);
 

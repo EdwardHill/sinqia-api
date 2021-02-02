@@ -13,6 +13,14 @@
 			 "password" : 123456
 
 
+	O front-end encontrasse embutido no back, para facilitar o acesso as rotas:
+para acessar pelo browser basta ir no endereço: `http://localhost:8080` e utilizar as crendêciais de acesso acima do admin padrão.
+- Para startar o projeto basta  importa-lo em alguma IDE com suporte ao java 8
+ E tbm o MySQL instalado, com as seguintes crendenciais:
+
+		user: root
+		password:
+
 * rota do adiministrador:
 
 ` /admin`
@@ -46,15 +54,23 @@
 -------------------------------------------------   			
 ### Observações sobre Autorização
 **Todas as requisições necessitam  que o usuário esteja autenticado*
-
+* É utilizado JWT pra autentificação e validação.
 * Somente o Administrador pode listar,editar e deletar todos os usuarios;
 * O cliente  tera acesso a seus dados e poderá altera-los exceto  seu CPF, neste caso somento o admin pode alterar essa informação;
 
 * O Usuario do sistema(Admin ou Cliente), poderam acessar seus dados pela rota: `/self`
 * ou seja:  
-* É recomanedável utilizar e-mails válidos no cadastro de clientes, para o cliente receber um e-mail com a confirmação do seu cadastro.		
+* É recomanedável utilizar e-mails válidos no cadastro de clientes, para o cliente receber um e-mail com a confirmação do seu cadastro.
 
-			/{tipo de usuario}/self
+##Observação:
+*Apenas duas coisas ficaram de fora do desafio que são:
+ - a integração com a api do viaCEP   
+ - a alteção dos dados pelo Cliente 
+utilizando  no seu perfil no front-end.
+por conta por fatores externos me faltou mais tempo para concluir o desaio  por completo.			
+
+
+	/{tipo de usuario}/self
 
 
 **Rotas já funcionais:**
