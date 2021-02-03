@@ -381,7 +381,7 @@ module.exports = "<nav #navbar class=\"navbar navbar-expand-lg navbar-transparen
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"logo align-middle\">\r\n  <a class=\"simple-text logo-mini\">\r\n    <div class=\"logo-img\">\r\n      <img src=\"https://www.sinqia.com.br/wp-content/themes/mziq_sinqia_insti/img/logotipo-laranja.png\" />\r\n    </div>\r\n  </a>\r\n  <!-- <a href=\"#\" class=\"my-auto simple-text logo-normal text-center\">\r\n    Sinqia\r\n  </a> -->\r\n  <a href=\"#\" class=\"my-auto simple-text logo-normal\"> Sinqia </a>\r\n</div>\r\n\r\n<div class=\"sidebar-wrapper\">\r\n  <div class=\"user\">\r\n    <div class=\"photo\">\r\n      <img alt=\"not found\" src=\"{{ imagemPerfil }}\" />\r\n    </div>\r\n    <div class=\"user-info\" style=\"cursor: text !important\">\r\n      <a\r\n        data-toggle=\"collapse\"\r\n        href=\"#collapseExample\"\r\n        class=\"collapsed text-center\"\r\n      >\r\n        <span\r\n          ><b\r\n            >{{ nomeDoUsuario }}\r\n            <br />\r\n            {{ perfilDoUsuario }}\r\n          </b>\r\n          <b class=\"caret\"></b>\r\n        </span>\r\n      </a>\r\n      <div class=\"collapse\" id=\"collapseExample\">\r\n        <ul class=\"nav\">\r\n          <li class=\"nav-item\">\r\n            <a\r\n              href=\"javascript:void(0)\"\r\n              class=\"nav-link\"\r\n              (click)=\"perfil(idDoUsuario)\"\r\n            >\r\n              <span class=\"sidebar-mini\"><i class=\"material-icons  smallorange600\">face</i></span>\r\n              <span class=\"sidebar-normal\">Meu Perfil</span>\r\n            </a>\r\n          </li>\r\n          \r\n\r\n          \r\n          <!-- <li class=\"nav-item\">\r\n            <a\r\n              href=\"javascript:void(0)\"\r\n              class=\"nav-link\"\r\n              routerLink=\"/administrador/admin-editar-perfil\"\r\n            >\r\n              <span class=\"sidebar-mini\">EP</span>\r\n              <span class=\"sidebar-normal\">Editar Perfil</span>\r\n            </a>\r\n          </li> -->\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"isMobileMenu()\">\r\n    <form class=\"navbar-form\">\r\n      <span class=\"bmd-form-group\">\r\n        <div class=\"input-group no-border\">\r\n          <input\r\n            type=\"text\"\r\n            value=\"\"\r\n            class=\"form-control\"\r\n            placeholder=\"Search...\"\r\n          />\r\n          <button\r\n            mat-raised-button\r\n            type=\"submit\"\r\n            class=\"btn btn-white btn-round btn-just-icon\"\r\n          >\r\n            <i class=\"material-icons\">search</i>\r\n            <div class=\"ripple-container\"></div>\r\n          </button>\r\n        </div>\r\n      </span>\r\n    </form>\r\n    <ul class=\"nav navbar-nav nav-mobile-menu\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" href=\"#pablo\">\r\n          <i class=\"material-icons\">dashboard</i>\r\n          <p>\r\n            <span class=\"d-lg-none d-md-block\">Stats</span>\r\n          </p>\r\n        </a>\r\n      </li>\r\n      <li class=\"nav-item dropdown\">\r\n        <a\r\n          class=\"nav-link\"\r\n          href=\"#pablo\"\r\n          id=\"navbarDropdownMenuLink\"\r\n          data-toggle=\"dropdown\"\r\n          aria-haspopup=\"true\"\r\n          aria-expanded=\"false\"\r\n        >\r\n          <i class=\"material-icons\">notifications</i>\r\n          <span class=\"notification\">5</span>\r\n          <p>\r\n            <span class=\"d-lg-none d-md-block\">Some Actions</span>\r\n          </p>\r\n        </a>\r\n        <div\r\n          class=\"dropdown-menu dropdown-menu-right\"\r\n          aria-labelledby=\"navbarDropdownMenuLink\"\r\n        >\r\n          <a class=\"dropdown-item\" href=\"#\"\r\n            >Mike John responded to your email</a\r\n          >\r\n          <a class=\"dropdown-item\" href=\"#\">You have 5 new tasks</a>\r\n          <a class=\"dropdown-item\" href=\"#\">You're now friend with Andrew</a>\r\n          <a class=\"dropdown-item\" href=\"#\">Another Notification</a>\r\n          <a class=\"dropdown-item\" href=\"#\">Another One</a>\r\n        </div>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" href=\"#pablo\">\r\n          <i class=\"material-icons\">person</i>\r\n          <p>\r\n            <span class=\"d-lg-none d-md-block\">Account</span>\r\n          </p>\r\n        </a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n  <ul class=\"nav\">\r\n    <li\r\n      routerLinkActive=\"active\"\r\n      *ngFor=\"let menuitem of menuItems\"\r\n      class=\"nav-item\"\r\n    >\r\n      <!--If is a single link-->\r\n      <a\r\n        [routerLink]=\"[menuitem.path]\"\r\n        *ngIf=\"menuitem.type === 'link'\"\r\n        class=\"nav-link\"\r\n        style=\"text-transform: none !important\"\r\n      >\r\n        <i class=\"material-icons\">{{ menuitem.icontype }}</i>\r\n        <p>{{ menuitem.title }}</p>\r\n      </a>\r\n      <!--If it have a submenu-->\r\n      <a\r\n        data-toggle=\"collapse\"\r\n        href=\"#{{ menuitem.collapse }}\"\r\n        *ngIf=\"menuitem.type === 'sub'\"\r\n        (click)=\"updatePS()\"\r\n        class=\"nav-link\"\r\n      >\r\n        <i class=\"material-icons\">{{ menuitem.icontype }}</i>\r\n        <p>{{ menuitem.title }}<b class=\"caret\"></b></p>\r\n      </a>\r\n\r\n      <!--Display the submenu items-->\r\n      <div\r\n        id=\"{{ menuitem.collapse }}\"\r\n        class=\"collapse\"\r\n        *ngIf=\"menuitem.type === 'sub'\"\r\n      >\r\n        <ul class=\"nav\">\r\n          <li\r\n            routerLinkActive=\"active\"\r\n            *ngFor=\"let childitem of menuitem.children\"\r\n            class=\"nav-item\"\r\n          >\r\n            <a [routerLink]=\"[menuitem.path, childitem.path]\" class=\"nav-link\">\r\n              <span class=\"sidebar-mini\">{{ childitem.ab }}</span>\r\n              <span class=\"sidebar-normal\">{{ childitem.title }}</span>\r\n            </a>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n    </li>\r\n    <!-- <li class=\"nav-item\">\r\n                    <a href=\"http://md-pro-angular.creative-tim.com/documentation/tutorial?ref=md-pro-archive\" class=\"nav-link\">\r\n                        <i class=\"material-icons\">school</i>\r\n                        <p>Documentation</p>\r\n                    </a>\r\n                </li> -->\r\n  </ul>\r\n</div>\r\n"
+module.exports = "<div class=\"logo align-middle\">\r\n  <a class=\"simple-text logo-mini\">\r\n    <div class=\"logo-img\">\r\n      <img  size=\"20px\" src=\"https://www.sinqia.com.br/wp-content/themes/mziq_sinqia_insti/img/logotipo-laranja.png\" />\r\n    </div>\r\n  </a>\r\n  <!-- <a href=\"#\" class=\"my-auto simple-text logo-normal text-center\">\r\n    Sinqia\r\n  </a> -->\r\n  <a href=\"#\" class=\"my-auto simple-text logo-normal\"></a>\r\n</div>\r\n\r\n<div class=\"sidebar-wrapper\">\r\n  <div class=\"user\">\r\n    <div class=\"photo\">\r\n      <img alt=\"not found\" src=\"{{ imagemPerfil }}\" />\r\n    </div>\r\n    <div class=\"user-info\" style=\"cursor: text !important\">\r\n      <a\r\n        data-toggle=\"collapse\"\r\n        href=\"#collapseExample\"\r\n        class=\"collapsed text-center\"\r\n      >\r\n        <span\r\n          ><b\r\n            >{{ nomeDoUsuario }}\r\n            <br />\r\n            {{ perfilDoUsuario }}\r\n          </b>\r\n          <b class=\"caret\"></b>\r\n        </span>\r\n      </a>\r\n      <div class=\"collapse\" id=\"collapseExample\">\r\n        <ul class=\"nav\">\r\n          <li class=\"nav-item\">\r\n            <a\r\n              href=\"javascript:void(0)\"\r\n              class=\"nav-link\"\r\n              (click)=\"perfil(idDoUsuario)\"\r\n            >\r\n              <span class=\"sidebar-mini\"><i class=\"material-icons  smallorange600\">face</i></span>\r\n              <span class=\"sidebar-normal\">Meu Perfil</span>\r\n            </a>\r\n          </li>\r\n          \r\n\r\n          \r\n          <!-- <li class=\"nav-item\">\r\n            <a\r\n              href=\"javascript:void(0)\"\r\n              class=\"nav-link\"\r\n              routerLink=\"/administrador/admin-editar-perfil\"\r\n            >\r\n              <span class=\"sidebar-mini\">EP</span>\r\n              <span class=\"sidebar-normal\">Editar Perfil</span>\r\n            </a>\r\n          </li> -->\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"isMobileMenu()\">\r\n    <form class=\"navbar-form\">\r\n      <span class=\"bmd-form-group\">\r\n        <div class=\"input-group no-border\">\r\n          <input\r\n            type=\"text\"\r\n            value=\"\"\r\n            class=\"form-control\"\r\n            placeholder=\"Search...\"\r\n          />\r\n          <button\r\n            mat-raised-button\r\n            type=\"submit\"\r\n            class=\"btn btn-white btn-round btn-just-icon\"\r\n          >\r\n            <i class=\"material-icons\">search</i>\r\n            <div class=\"ripple-container\"></div>\r\n          </button>\r\n        </div>\r\n      </span>\r\n    </form>\r\n    <ul class=\"nav navbar-nav nav-mobile-menu\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" href=\"#pablo\">\r\n          <i class=\"material-icons\">dashboard</i>\r\n          <p>\r\n            <span class=\"d-lg-none d-md-block\">Stats</span>\r\n          </p>\r\n        </a>\r\n      </li>\r\n      <li class=\"nav-item dropdown\">\r\n        <a\r\n          class=\"nav-link\"\r\n          href=\"#pablo\"\r\n          id=\"navbarDropdownMenuLink\"\r\n          data-toggle=\"dropdown\"\r\n          aria-haspopup=\"true\"\r\n          aria-expanded=\"false\"\r\n        >\r\n          <i class=\"material-icons\">notifications</i>\r\n          <span class=\"notification\">5</span>\r\n          <p>\r\n            <span class=\"d-lg-none d-md-block\">Some Actions</span>\r\n          </p>\r\n        </a>\r\n        <div\r\n          class=\"dropdown-menu dropdown-menu-right\"\r\n          aria-labelledby=\"navbarDropdownMenuLink\"\r\n        >\r\n          <a class=\"dropdown-item\" href=\"#\"\r\n            >Mike John responded to your email</a\r\n          >\r\n          <a class=\"dropdown-item\" href=\"#\">You have 5 new tasks</a>\r\n          <a class=\"dropdown-item\" href=\"#\">You're now friend with Andrew</a>\r\n          <a class=\"dropdown-item\" href=\"#\">Another Notification</a>\r\n          <a class=\"dropdown-item\" href=\"#\">Another One</a>\r\n        </div>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" href=\"#pablo\">\r\n          <i class=\"material-icons\">person</i>\r\n          <p>\r\n            <span class=\"d-lg-none d-md-block\">Account</span>\r\n          </p>\r\n        </a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n  <ul class=\"nav\">\r\n    <li\r\n      routerLinkActive=\"active\"\r\n      *ngFor=\"let menuitem of menuItems\"\r\n      class=\"nav-item\"\r\n    >\r\n      <!--If is a single link-->\r\n      <a\r\n        [routerLink]=\"[menuitem.path]\"\r\n        *ngIf=\"menuitem.type === 'link'\"\r\n        class=\"nav-link\"\r\n        style=\"text-transform: none !important\"\r\n      >\r\n        <i class=\"material-icons\">{{ menuitem.icontype }}</i>\r\n        <p>{{ menuitem.title }}</p>\r\n      </a>\r\n      <!--If it have a submenu-->\r\n      <a\r\n        data-toggle=\"collapse\"\r\n        href=\"#{{ menuitem.collapse }}\"\r\n        *ngIf=\"menuitem.type === 'sub'\"\r\n        (click)=\"updatePS()\"\r\n        class=\"nav-link\"\r\n      >\r\n        <i class=\"material-icons\">{{ menuitem.icontype }}</i>\r\n        <p>{{ menuitem.title }}<b class=\"caret\"></b></p>\r\n      </a>\r\n\r\n      <!--Display the submenu items-->\r\n      <div\r\n        id=\"{{ menuitem.collapse }}\"\r\n        class=\"collapse\"\r\n        *ngIf=\"menuitem.type === 'sub'\"\r\n      >\r\n        <ul class=\"nav\">\r\n          <li\r\n            routerLinkActive=\"active\"\r\n            *ngFor=\"let childitem of menuitem.children\"\r\n            class=\"nav-item\"\r\n          >\r\n            <a [routerLink]=\"[menuitem.path, childitem.path]\" class=\"nav-link\">\r\n              <span class=\"sidebar-mini\">{{ childitem.ab }}</span>\r\n              <span class=\"sidebar-normal\">{{ childitem.title }}</span>\r\n            </a>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n    </li>\r\n    <!-- <li class=\"nav-item\">\r\n                    <a href=\"http://md-pro-angular.creative-tim.com/documentation/tutorial?ref=md-pro-archive\" class=\"nav-link\">\r\n                        <i class=\"material-icons\">school</i>\r\n                        <p>Documentation</p>\r\n                    </a>\r\n                </li> -->\r\n  </ul>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -445,8 +445,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Endpoints", function() { return Endpoints; });
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../environments/environment */ "./src/environments/environment.ts");
 
-// const api = '/api/';
-//const api = 'http://localhost:8080/api/';
 var api;
 if (_environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].production) {
     api = '/api/';
@@ -454,36 +452,16 @@ if (_environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].produc
 else {
     api = 'http://localhost:8080/';
 }
-// const api = 'https://iopen-1.herokuapp.com/';
 var Endpoints = /** @class */ (function () {
     function Endpoints() {
     }
     Endpoints.AUTH_LOGIN = api + 'login';
     Endpoints.ADMINISTRADOR = api + 'admin/';
-    Endpoints.SETOR_DO_VENDEDOR = api + 'vendedor/';
-    Endpoints.VENDEDOR = api + 'vendedor/';
-    Endpoints.SETOR_DO_CLIENTE = api + 'cliente/';
     Endpoints.CLIENTE = api + 'cliente/';
-    Endpoints.PRODUTO = api + 'produto/';
-    Endpoints.SERVICO = api + 'servico/';
-    Endpoints.SOLICITACAO = api + 'solicitacao/';
-    Endpoints.ITEM_SERVICO = api + 'item-servico/';
-    Endpoints.SOLICITCAO_CONTAGEM = api + 'solicitacao-contagem/';
     Endpoints.RESET_PASSWORD = api + 'auth/forgot';
-    Endpoints.INDICADOR = api + 'indicador/';
-    Endpoints.INTERACAO = api + 'interacao/';
     return Endpoints;
 }());
 
-// const api = 'api/';
-// export class Endpoints {
-//     public static SETOR_DO_OPERADOR = api + 'setor_do_operador/';
-//     public static OPERADOR = api + 'operador/';
-//     public static SETOR_DO_CLIENTE = api + 'setor_do_cliente/';
-//     public static SERVICO = api + 'servico/';
-//     public static SOLICITACAO = api + 'solicitacao/';
-//     public static ITEM_SERVICO = api + 'item_servico/';
-// }
 
 
 /***/ }),
@@ -776,7 +754,7 @@ var Perfil = /** @class */ (function () {
         descricao: 'Admnistrador'
     };
     Perfil.CLIENTE = {
-        id: 3,
+        id: 2,
         valor: 'ROLE_CLIENTE',
         descricao: 'Cliente'
     };
@@ -1135,50 +1113,6 @@ var AppRoutes = [
                 loadChildren: './_modules/auth/auth.module#AuthModule'
             }]
     },
-    // {
-    //     path: '',
-    //     component: AdminLayoutComponent,
-    //     children: [
-    //         {
-    //             path: '',
-    //             loadChildren: './dashboard/dashboard.module#DashboardModule'
-    //         }, {
-    //             path: 'components',
-    //             loadChildren: './components/components.module#ComponentsModule'
-    //         }, {
-    //             path: 'forms',
-    //             loadChildren: './forms/forms.module#Forms'
-    //         }, {
-    //             path: 'tables',
-    //             loadChildren: './tables/tables.module#TablesModule'
-    //         }, {
-    //             path: 'maps',
-    //             loadChildren: './maps/maps.module#MapsModule'
-    //         }, {
-    //             path: 'widgets',
-    //             loadChildren: './widgets/widgets.module#WidgetsModule'
-    //         }, {
-    //             path: 'charts',
-    //             loadChildren: './charts/charts.module#ChartsModule'
-    //         }, {
-    //             path: 'calendar',
-    //             loadChildren: './calendar/calendar.module#CalendarModule'
-    //         }, {
-    //             path: '',
-    //             loadChildren: './userpage/user.module#UserModule'
-    //         }, {
-    //             path: '',
-    //             loadChildren: './timeline/timeline.module#TimelineModule'
-    //         }
-    //     ]
-    // }, {
-    //     path: '',
-    //     component: AuthLayoutComponent,
-    //     children: [{
-    //         path: 'pages',
-    //         loadChildren: './pages/pages.module#PagesModule'
-    //     }]
-    // },
     {
         path: '**',
         redirectTo: 'auth/login',
@@ -2343,202 +2277,15 @@ var NavbarModule = /** @class */ (function () {
 /*!***********************************!*\
   !*** ./src/app/sidebar/routes.ts ***!
   \***********************************/
-/*! exports provided: ROUTES_VENDEDOR, ROUTES_CLIENTE, ROUTES_ADMINISTRADOR */
+/*! exports provided: ROUTES_CLIENTE, ROUTES_ADMINISTRADOR */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROUTES_VENDEDOR", function() { return ROUTES_VENDEDOR; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROUTES_CLIENTE", function() { return ROUTES_CLIENTE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROUTES_ADMINISTRADOR", function() { return ROUTES_ADMINISTRADOR; });
-//Menu Items
-var ROUTES_VENDEDOR = [
-    ,
-    // {
-    //     path: '/administrador',
-    //     title: 'Administrador',
-    //     type: 'sub',
-    //     icontype: 'apps',
-    //     collapse: 'administrador',
-    //     children: [
-    //         { path: 'setor-do-cliente-listar', title: 'Setores dos Clientes', ab: 'S' },
-    //         // {path: 'cliente-listar', title: 'Clientes', ab:'C'},
-    //         { path: 'setor-do-operador-listar', title: 'Setores dos Operadores', ab: 'B' },
-    //         { path: 'operador-listar', title: 'Operadores', ab: 'O' },
-    //     ]
-    // },
-    // {
-    //     path: '/cliente',
-    //     title: 'Cliente',
-    //     type: 'sub',
-    //     icontype: 'apps',
-    //     collapse: 'cliente',
-    //     children: [
-    //         { path: 'solicitacao-listar', title: 'Solicitações', ab: 'S' },
-    //         // {path: 'cliente-listar', title: 'Clientes', ab:'C'},
-    //         // { path: 'setor-do-operador-listar', title: 'Setores dos Operadores', ab: 'B' },
-    //         // { path: 'operador-listar', title: 'Operadores', ab: 'O' },
-    //     ]
-    // },
-];
-//Menu Items
-var ROUTES_CLIENTE = [
-// {
-//     path: '/administrador',
-//     title: 'Administrador',
-//     type: 'sub',
-//     icontype: 'apps',
-//     collapse: 'administrador',
-//     children: [
-//         { path: 'setor-do-cliente-listar', title: 'Setores dos Clientes', ab: 'S' },
-//         // {path: 'cliente-listar', title: 'Clientes', ab:'C'},
-//         { path: 'setor-do-operador-listar', title: 'Setores dos Operadores', ab: 'B' },
-//         { path: 'operador-listar', title: 'Operadores', ab: 'O' },
-//     ]
-// },
-// {
-//     path: '/operador',
-//     title: 'Operador',
-//     type: 'sub',
-//     icontype: 'apps',
-//     collapse: 'operador',
-//     children: [
-//         { path: 'servico-listar', title: 'Serviços', ab: 'S' },
-//         // {path: 'cliente-listar', title: 'Clientes', ab:'C'},
-//         // { path: 'setor-do-operador-listar', title: 'Setores dos Operadores', ab: 'B' },
-//         // { path: 'operador-listar', title: 'Operadores', ab: 'O' },
-//     ]
-// },
-// {
-//     path: '/administrador/setor-do-operador-listar',
-//     title: 'Setores dos Operadores',
-//     type: 'link',
-//     icontype: 'dashboard'
-// },
-// {
-//     path: '/administrador/operador-listar',
-//     title: 'Operadores',
-//     type: 'link',
-//     icontype: 'dashboard'
-// },
-// {
-//     path: '/administrador/setor-do-cliente-listar',
-//     title: 'Setores dos Clientes',
-//     type: 'link',
-//     icontype: 'dashboard'
-// },
-// {
-//     path: '/cliente/solicitacao-listar',
-//     title: 'Minhas solicitações',
-//     type: 'link',
-//     icontype: 'dashboard'
-// },
-// {
-//     path: '/dashboard',
-//     title: 'Dashboard',
-//     type: 'link',
-//     icontype: 'dashboard'
-// }, {
-//     path: '/components',
-//     title: 'Components',
-//     type: 'sub',
-//     icontype: 'apps',
-//     collapse: 'components',
-//     children: [
-//         { path: 'buttons', title: 'Buttons', ab: 'B' },
-//         { path: 'grid', title: 'Grid System', ab: 'GS' },
-//         { path: 'panels', title: 'Panels', ab: 'P' },
-//         { path: 'sweet-alert', title: 'Sweet Alert', ab: 'SA' },
-//         { path: 'notifications', title: 'Notifications', ab: 'N' },
-//         { path: 'icons', title: 'Icons', ab: 'I' },
-//         { path: 'typography', title: 'Typography', ab: 'T' }
-//     ]
-// }, {
-//     path: '/forms',
-//     title: 'Forms',
-//     type: 'sub',
-//     icontype: 'content_paste',
-//     collapse: 'forms',
-//     children: [
-//         { path: 'regular', title: 'Regular Forms', ab: 'RF' },
-//         { path: 'extended', title: 'Extended Forms', ab: 'EF' },
-//         { path: 'validation', title: 'Validation Forms', ab: 'VF' },
-//         { path: 'wizard', title: 'Wizard', ab: 'W' }
-//     ]
-// }, {
-//     path: '/tables',
-//     title: 'Tables',
-//     type: 'sub',
-//     icontype: 'grid_on',
-//     collapse: 'tables',
-//     children: [
-//         { path: 'regular', title: 'Regular Tables', ab: 'RT' },
-//         { path: 'extended', title: 'Extended Tables', ab: 'ET' },
-//         { path: 'datatables.net', title: 'Datatables.net', ab: 'DT' }
-//     ]
-// }, {
-//     path: '/maps',
-//     title: 'Maps',
-//     type: 'sub',
-//     icontype: 'place',
-//     collapse: 'maps',
-//     children: [
-//         { path: 'google', title: 'Google Maps', ab: 'GM' },
-//         { path: 'fullscreen', title: 'Full Screen Map', ab: 'FSM' },
-//         { path: 'vector', title: 'Vector Map', ab: 'VM' }
-//     ]
-// }, {
-//     path: '/widgets',
-//     title: 'Widgets',
-//     type: 'link',
-//     icontype: 'widgets'
-// }, {
-//     path: '/charts',
-//     title: 'Charts',
-//     type: 'link',
-//     icontype: 'timeline'
-// }, {
-//     path: '/calendar',
-//     title: 'Calendar',
-//     type: 'link',
-//     icontype: 'date_range'
-// }, {
-//     path: '/pages',
-//     title: 'Pages',
-//     type: 'sub',
-//     icontype: 'image',
-//     collapse: 'pages',
-//     children: [
-//         { path: 'pricing', title: 'Pricing', ab: 'P' },
-//         { path: 'timeline', title: 'Timeline Page', ab: 'TP' },
-//         { path: 'login', title: 'Login Page', ab: 'LP' },
-//         { path: 'register', title: 'Register Page', ab: 'RP' },
-//         { path: 'lock', title: 'Lock Screen Page', ab: 'LSP' },
-//         { path: 'user', title: 'User Page', ab: 'UP' }
-//     ]
-// }
-];
-//Menu Items
+var ROUTES_CLIENTE = [];
 var ROUTES_ADMINISTRADOR = [
-    /*{
-        path: '/administrador/setor-do-vendedor-listar',
-        title: 'Setores dos Vendedores',
-        type: 'link',
-        icontype: 'group'
-    },*/
-    /*
-    {
-        path: '/administrador/vendedor-listar',
-        title: 'Vendedores',
-        type: 'link',
-        icontype: 'engineering'
-    },/*
-    {
-        path: '/administrador/setor-do-cliente-listar',
-        title: 'Setores dos Clientes',
-        type: 'link',
-        icontype: 'people_outline'
-    },*/
     {
         path: '/administrador/cliente-listar',
         title: 'Clientes',
@@ -2632,10 +2379,7 @@ var ROUTES = [
         icontype: 'apps',
         collapse: 'administrador',
         children: [
-            { path: 'setor-do-cliente-listar', title: 'Setores dos Clientes', ab: 'S' },
-            // {path: 'cliente-listar', title: 'Clientes', ab:'C'},
-            { path: 'setor-do-vendedor-listar', title: 'Setores dos Vendedores', ab: 'B' },
-            { path: 'vendedor-listar', title: 'Vendedores', ab: 'O' },
+            { path: 'cliente-listar', title: 'Clientess', ab: 'C' },
         ]
     },
     {
@@ -2645,117 +2389,9 @@ var ROUTES = [
         icontype: 'apps',
         collapse: 'cliente',
         children: [
-            { path: 'solicitacao-listar', title: 'Solicitações', ab: 'S' },
+            { path: 'cliente-perfil', title: 'Editar Perfil', ab: 'S' },
         ]
     },
-    // {
-    //     path: '/administrador/setor-do-operador-listar',
-    //     title: 'Setores dos Operadores',
-    //     type: 'link',
-    //     icontype: 'dashboard'
-    // },
-    // {
-    //     path: '/administrador/operador-listar',
-    //     title: 'Operadores',
-    //     type: 'link',
-    //     icontype: 'dashboard'
-    // },
-    // {
-    //     path: '/administrador/setor-do-cliente-listar',
-    //     title: 'Setores dos Clientes',
-    //     type: 'link',
-    //     icontype: 'dashboard'
-    // },
-    // {
-    //     path: '/cliente/solicitacao-listar',
-    //     title: 'Minhas solicitações',
-    //     type: 'link',
-    //     icontype: 'dashboard'
-    // },
-    {
-        path: '/dashboard',
-        title: 'Dashboard',
-        type: 'link',
-        icontype: 'dashboard'
-    }, {
-        path: '/components',
-        title: 'Components',
-        type: 'sub',
-        icontype: 'apps',
-        collapse: 'components',
-        children: [
-            { path: 'buttons', title: 'Buttons', ab: 'B' },
-            { path: 'grid', title: 'Grid System', ab: 'GS' },
-            { path: 'panels', title: 'Panels', ab: 'P' },
-            { path: 'sweet-alert', title: 'Sweet Alert', ab: 'SA' },
-            { path: 'notifications', title: 'Notifications', ab: 'N' },
-            { path: 'icons', title: 'Icons', ab: 'I' },
-            { path: 'typography', title: 'Typography', ab: 'T' }
-        ]
-    }, {
-        path: '/forms',
-        title: 'Forms',
-        type: 'sub',
-        icontype: 'content_paste',
-        collapse: 'forms',
-        children: [
-            { path: 'regular', title: 'Regular Forms', ab: 'RF' },
-            { path: 'extended', title: 'Extended Forms', ab: 'EF' },
-            { path: 'validation', title: 'Validation Forms', ab: 'VF' },
-            { path: 'wizard', title: 'Wizard', ab: 'W' }
-        ]
-    }, {
-        path: '/tables',
-        title: 'Tables',
-        type: 'sub',
-        icontype: 'grid_on',
-        collapse: 'tables',
-        children: [
-            { path: 'regular', title: 'Regular Tables', ab: 'RT' },
-            { path: 'extended', title: 'Extended Tables', ab: 'ET' },
-            { path: 'datatables.net', title: 'Datatables.net', ab: 'DT' }
-        ]
-    }, {
-        path: '/maps',
-        title: 'Maps',
-        type: 'sub',
-        icontype: 'place',
-        collapse: 'maps',
-        children: [
-            { path: 'google', title: 'Google Maps', ab: 'GM' },
-            { path: 'fullscreen', title: 'Full Screen Map', ab: 'FSM' },
-            { path: 'vector', title: 'Vector Map', ab: 'VM' }
-        ]
-    }, {
-        path: '/widgets',
-        title: 'Widgets',
-        type: 'link',
-        icontype: 'widgets'
-    }, {
-        path: '/charts',
-        title: 'Charts',
-        type: 'link',
-        icontype: 'timeline'
-    }, {
-        path: '/calendar',
-        title: 'Calendar',
-        type: 'link',
-        icontype: 'date_range'
-    }, {
-        path: '/pages',
-        title: 'Pages',
-        type: 'sub',
-        icontype: 'image',
-        collapse: 'pages',
-        children: [
-            { path: 'pricing', title: 'Pricing', ab: 'P' },
-            { path: 'timeline', title: 'Timeline Page', ab: 'TP' },
-            { path: 'login', title: 'Login Page', ab: 'LP' },
-            { path: 'register', title: 'Register Page', ab: 'RP' },
-            { path: 'lock', title: 'Lock Screen Page', ab: 'LSP' },
-            { path: 'user', title: 'User Page', ab: 'UP' }
-        ]
-    }
 ];
 var SidebarComponent = /** @class */ (function () {
     function SidebarComponent(http, route, authService, router, showMessageService) {
@@ -2808,8 +2444,6 @@ var SidebarComponent = /** @class */ (function () {
                 perfil = localStorage.getItem('perfil');
                 switch (perfil) {
                     case _shared_model_enum_perfil__WEBPACK_IMPORTED_MODULE_6__["Perfil"].CLIENTE.valor: {
-                        // const novoRouterCliente = ROUTES_CLIENTE.concat(this.routes_operador_setores);
-                        // this.menuItems = novoRouterCliente.filter(menuItem => menuItem);
                         this.menuItems = _routes__WEBPACK_IMPORTED_MODULE_5__["ROUTES_CLIENTE"].filter(function (menuItem) { return menuItem; });
                         break;
                     }
@@ -2844,7 +2478,7 @@ var SidebarComponent = /** @class */ (function () {
         var perfil = localStorage.getItem('perfil');
         switch (perfil) {
             case _shared_model_enum_perfil__WEBPACK_IMPORTED_MODULE_6__["Perfil"].CLIENTE.valor: {
-                this.router.navigate(['cliente/cliente-editar-perfil/', id]);
+                this.router.navigate(['cliente/cliente-perfil/', id]);
                 break;
             }
             case _shared_model_enum_perfil__WEBPACK_IMPORTED_MODULE_6__["Perfil"].ADMIN.valor: {
@@ -2983,7 +2617,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Devduo\Documents\GitHub\GabayWeb\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Devduo\Documents\GitHub\sinqia-front\src\main.ts */"./src/main.ts");
 
 
 /***/ })

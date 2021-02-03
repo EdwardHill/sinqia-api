@@ -29,9 +29,6 @@ var ClienteService = /** @class */ (function () {
     function ClienteService(http) {
         this.http = http;
     }
-    ClienteService.prototype.findAllBySetor = function (id, pageNumber) {
-        return this.http.get(src_app_config_endpoints__WEBPACK_IMPORTED_MODULE_2__["Endpoints"].CLIENTE + id + '/cliente?page=' + pageNumber);
-    };
     ClienteService.prototype.findAll = function () {
         return this.http.get(src_app_config_endpoints__WEBPACK_IMPORTED_MODULE_2__["Endpoints"].CLIENTE);
     };
