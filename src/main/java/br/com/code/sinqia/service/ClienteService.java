@@ -141,7 +141,7 @@ public class ClienteService {
 		if (obj.getCpf() != null) {
 			if (!usuario.get().userHasAuthority(Perfil.ADMIN.getDescricao())) {
 				throw new AuthorizationException(
-						"Acesso Negado, somente o adiministador pode alterar o cpf, contate o Adiministrador!");
+						"Acesso Negado, somente o administador pode alterar o cpf, contate o Administrador!");
 			} else {
 				upObj.setCpf(obj.getCpf());
 			}	
